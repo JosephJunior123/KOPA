@@ -99,3 +99,40 @@ nav a {
 .shop-card p {
     color: #666;
 }
+.shop-header {
+    text-align: center;
+    padding: 70px 20px 30px;
+}
+.shop-header h1 {
+    font-size: 42px;
+}
+.products {
+    padding: 80px 40px;
+    text-align: center;
+}
+.products h2 {
+    font-size: 32px;
+    margin-bottom: 40px;
+}
+.product-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.product-card {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    width: 250px;
+}
+.product-image {
+    font-size: 70px;
+    margin-bottom: 20px;
+}
+.product-card h3 {
+    font-size: 20px;
+}
+.product-card p {
+    font-size: 18px;
+    font-weight: bold;
+}
