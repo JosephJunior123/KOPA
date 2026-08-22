@@ -16,6 +16,32 @@ function addToCart(productName, price) {
     alert(productName + " a été ajouté au panier !"); 
     displayCart(); 
 } 
+function changeQuantity(productName, change) { 
+    const product = cart.find(function(item) { 
+        return item.name === productName; 
+    }); 
+    if (product) { 
+        product.quantity += change; 
+        if (product.quantity < 1) { 
+            product.quantity = 1; 
+        } 
+        localStorage.setItem("kopaCart", JSON.stringify(cart)); 
+        displayCart(); 
+    } 
+}
+function removeFromCart(productName) {
+
+    cart = cart.filter(function(product) {
+
+        return product.name !== productName;
+
+    });
+
+    localStorage.setItem("kopaCart", JSON.stringify(cart));
+
+    displayCart();
+
+}
 function displayCart() { 
     const cartItems = document.getElementById("cart-items"); 
     const cartTotal = document.getElementById("cart-total"); 
@@ -31,11 +57,29 @@ function displayCart() {
         } 
         const subtotal = product.price * product.quantity; 
         const productElement = document.createElement("div"); 
-        productElement.innerHTML = ` 
-        <h3>${product.name}</h3> 
-        <p>${product.price} $ × ${product.quantity}</p> 
-        <p>Sous-total : ${subtotal} $</p> 
-        `; 
+        productElement.innerHTML = `
+
+    <h3>${product.name}</h3>
+
+    <p>${product.price} $ × ${product.quantity}</p>
+
+    <button onclick="changeQuantity('${product.name}', -1)">
+
+        −
+
+    </button>
+
+    <button onclick="changeQuantity('${product.name}', 1)">
+
+        +
+
+    </button>
+    <button onclick="removeFromCart('${product.name}')">
+        🗑️
+    </button>
+    <p>Sous-total : ${subtotal} $</p>
+
+`; 
         cartItems.appendChild(productElement); 
         total = total + subtotal; 
     }); 

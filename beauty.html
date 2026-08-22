@@ -13,7 +13,7 @@
             </div> 
             <nav> 
                 <a href="index.html">Accueil</a> 
-                <a href="#">Panier</a> 
+                <a href="cart.html">Panier</a> 
             </nav> 
         </header> 
         <main> 
@@ -30,4 +30,33 @@
                         </div> 
                         <h3>Rouge à lèvres</h3> 
                         <p>15 $</p> 
-                        <button>Ajouter au panier</button> </div> <div class="product-card"> <div class="product-image"> 🧴 </div> <h3>Crème hydratante</h3> <p>20 $</p> <button>Ajouter au panier</button> </div> <div class="product-card"> <div class="product-image"> 🧼 </div> <h3>Gel nettoyant</h3> <p>12 $</p> <button>Ajouter au panier</button> </div> </div> </section> </main> </body> </html>
+                        <button onclick="addToCart('Rouge à lèvres', 15)">
+                            Ajouter au panier
+                        </button> 
+                    </div> 
+                    <div class="product-card"> 
+                        <div class="product-image"> 
+                            🧴 
+                        </div> 
+                        <h3>Crème hydratante</h3> 
+                        <p>20 $</p> 
+                        <button onclick="addToCart('Crème hydratante', 20)">
+                            Ajouter au panier
+                        </button> 
+                    </div> 
+                    <div class="product-card"> 
+                        <div class="product-image"> 
+                            🧼 
+                        </div> 
+                        <h3>Gel nettoyant</h3> 
+                        <p>12 $</p> 
+                        <button onclick="addToCart('Gel nettoyant', 12)">
+                            Ajouter au panier
+                        </button> 
+                    </div> 
+                </div> 
+            </section> 
+        </main> 
+        <script src="cart.js"></script>
+    </body> 
+</html>

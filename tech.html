@@ -13,7 +13,7 @@
             </div> 
             <nav> 
                 <a href="index.html">Accueil</a> 
-                <a href="#">Panier</a> 
+                <a href="cart.html">Panier</a> 
             </nav> 
         </header> 
         <main> 
@@ -30,7 +30,9 @@
                         </div> 
                         <h3>Smartphone</h3> 
                         <p>300 $</p> 
-                        <button>Ajouter au panier</button> 
+                        <button onclick="addToCart('Smartphone', 300)">
+                            Ajouter au panier
+                        </button> 
                     </div> 
                     <div class="product-card"> 
                         <div class="product-image"> 
@@ -38,7 +40,9 @@
                         </div> 
                         <h3>Ordinateur portable</h3> 
                         <p>700 $</p> 
-                        <button>Ajouter au panier</button> 
+                        <button onclick="addToCart('Ordinateur portable', 700)">
+                            Ajouter au panier
+                        </button> 
                     </div> 
                     <div class="product-card"> 
                         <div class="product-image"> 
@@ -46,10 +50,13 @@
                         </div> 
                         <h3>Casque Bluetooth</h3> 
                         <p>50 $</p> 
-                        <button>Ajouter au panier</button> 
+                        <button onclick="addToCart('Casque Bluetooth', 50)">
+                            Ajouter au panier
+                        </button> 
                     </div> 
                 </div> 
             </section> 
-        </main> 
+        </main>
+        <script src="cart.js"></script> 
     </body> 
 </html>
