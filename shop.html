@@ -13,7 +13,7 @@
             </div>
             <nav>
                 <a href="index.html">Accueil</a>
-                <a href="#">Panier</a>
+                <a href="cart.html">Panier</a>
             </nav>
         </header>
         <main>
@@ -30,7 +30,9 @@
                         </div>
                         <h3>Robe élégante</h3>
                         <p>25 $.</p>
-                        <button>Ajouter au panier</button>
+                        <button onclick="addToCart('Robe élégante', 25)">
+                            Ajouter au panier
+                        </button>
                     </div>
                     <div class="product-card">
                         <div class="product-image">
@@ -38,19 +40,24 @@
                         </div>
                         <h3>T-shirt tendance</h3>
                         <p>40 $.</p>
-                        <button>Ajouter au panier</button>
+                        <button onclick="addToCart('T-shirt tendance', 40)">
+                            Ajouter au panier
+                        </button>
                     </div>
                     <div class="product-card">
                         <div class="product-image">
                             👖
                         </div>
                         <h3>Jean confortable</h3>
-                        <p>60 $.</p>
-                        <button>Ajouter au panier</button>
+                        <p>30 $.</p>
+                        <button onclick="addToCart('Jean confortable', 30)">
+                            Ajouter au panier
+                        </button>
                     </div>
                 </div>
             </section>
         </main>
         <script src="shop.js"></script>
+        <script src="cart.js"></script>
     </body>
 </html>
