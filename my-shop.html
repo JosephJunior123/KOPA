@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ma boutique - KOPA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            KOPA
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+
+                Accueil
+
+            </a>
+
+            <a href="cart.html">
+
+                Panier
+
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="shop-header">
+
+            <h1 id="my-shop-name">
+
+                Ma boutique
+
+            </h1>
+
+            <p id="my-shop-category">
+
+                Catégorie
+
+            </p>
+
+            <p id="my-shop-description">
+
+                Description
+
+            </p>
+
+        </section>
+
+        <section class="products">
+
+            <h2>Mes produits</h2>
+            <button onclick="showProductForm()">
+                ➕ Ajouter un produit
+            </button>
+            <div id="product-form-container"></div>
+
+            <div class="product-container">
+                <div id="my-products-container"></div>
+                <div class="product-card">
+
+                    <div class="product-image">
+
+                        🛍️
+
+                    </div>
+
+                    <h3>Mon premier produit</h3>
+
+                    <p>25 $</p>
+
+                    <button>
+
+                        Ajouter au panier
+
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+    <script src="cart.js"></script>
+    <script src="my-shop.js"></script>
+
+</body>
+
+</html>

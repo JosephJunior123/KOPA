@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Créer ma boutique - KOPA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            KOPA
+
+        </div>
+
+        <nav>
+
+            <a href="index.html">Accueil</a>
+
+            <a href="cart.html">Panier</a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="create-shop">
+
+            <h1>Créer ma boutique</h1>
+
+            <p>
+
+                Créez votre boutique et commencez à vendre sur KOPA.
+
+            </p>
+            <form id="shop-form">
+
+    <label for="shop-name">
+
+        Nom de la boutique
+
+    </label>
+
+    <input
+
+        type="text"
+
+        id="shop-name"
+
+        placeholder="Exemple : Ma Boutique"
+
+        required
+
+    >
+
+    <label for="shop-category">
+
+        Catégorie
+
+    </label>
+
+    <select id="shop-category" required>
+
+        <option value="">
+
+            Choisissez une catégorie
+
+        </option>
+
+        <option value="Mode">
+
+            Mode et vêtements
+
+        </option>
+
+        <option value="Technologie">
+
+            Technologie
+
+        </option>
+
+        <option value="Beauté">
+
+            Beauté et cosmétiques
+
+        </option>
+
+        <option value="Alimentation">
+
+            Alimentation
+
+        </option>
+
+        <option value="Autre">
+
+            Autre
+
+        </option>
+
+    </select>
+
+    <label for="shop-description">
+
+        Description de la boutique
+
+    </label>
+
+    <textarea
+
+        id="shop-description"
+
+        placeholder="Présentez votre boutique..."
+
+        required
+
+    ></textarea>
+
+    <label for="owner-name">
+
+        Nom du commerçant
+
+    </label>
+
+    <input
+
+        type="text"
+
+        id="owner-name"
+
+        placeholder="Votre nom"
+
+        required
+
+    >
+
+    <button type="submit">
+
+        Créer ma boutique
+
+    </button>
+
+</form>
+
+        </section>
+
+    </main>
+    <script src="create-shop.js"></script>
+
+</body>
+
+</html>
