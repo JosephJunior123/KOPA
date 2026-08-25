@@ -43,29 +43,125 @@ nav a {
 .hero {
     padding: 120px 20px;
 }
+/* ===== FEATURES KOPA ===== */
+
 .features {
-    display: flex;
-    justify-content: center;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+    padding: 80px 20px;
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
     gap: 30px;
-    padding: 60px 40px;
+
 }
+
 .feature {
-    background-color: white;
-    padding: 30px;
-    border-radius: 12px;
+
+    background: #ffffff;
+
+    padding: 35px 30px;
+
+    border-radius: 20px;
+
     text-align: center;
-    width: 250px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+
+        0 8px 25px rgba(0, 0, 0, 0.05);
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease;
+
 }
+
+.feature:hover {
+
+    transform: translateY(-8px);
+
+    box-shadow:
+
+        0 18px 40px rgba(0, 0, 0, 0.10);
+
+}
+
 .feature-icon {
+
+    width: 75px;
+
+    height: 75px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
     font-size: 40px;
+
+    border-radius: 18px;
+
+    background: #f3f4f6;
+
 }
+
 .feature h2 {
-    font-size: 22px;
+
+    margin-bottom: 12px;
+
+    font-size: 23px;
+
+    font-weight: 800;
+
+    color: #111827;
+
 }
+
 .feature p {
-    line-height: 1.6;
-    color: #666;
+
+    margin: 0;
+
+    line-height: 1.7;
+
+    color: #6b7280;
+
+    font-size: 16px;
+
 }
+
+/* ===== FEATURES MOBILE ===== */
+
+@media (max-width: 800px) {
+
+    .features {
+
+        grid-template-columns: 1fr;
+
+        padding: 60px 20px;
+
+    }
+
+    .feature {
+
+        width: auto;
+
+    }
+
+}
+
+
 .shop {
     padding: 80px 40px;
     text-align: center;
@@ -106,36 +202,7 @@ nav a {
 .shop-header h1 {
     font-size: 42px;
 }
-.products {
-    padding: 80px 40px;
-    text-align: center;
-}
-.products h2 {
-    font-size: 32px;
-    margin-bottom: 40px;
-}
-.product-container {
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-.product-card {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 250px;
-}
-.product-image {
-    font-size: 70px;
-    margin-bottom: 20px;
-}
-.product-card h3 {
-    font-size: 20px;
-}
-.product-card p {
-    font-size: 18px;
-    font-weight: bold;
-}
+
 /* ===== DESIGN DES PRODUITS KOPA ===== */
 
 .products {
@@ -158,43 +225,65 @@ nav a {
 
 }
 
+/* ===== PRODUITS KOPA ===== */
+
 .product-container {
+
+    max-width: 1200px;
+
+    margin: 0 auto;
 
     display: grid;
 
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    grid-template-columns:
 
-    gap: 25px;
+        repeat(auto-fit, minmax(250px, 1fr));
+
+    gap: 30px;
+
+    padding: 20px;
 
 }
 
 .product-card {
 
-    background: white;
+    background: #ffffff;
 
-    border-radius: 18px;
+    border-radius: 22px;
 
-    padding: 20px;
+    overflow: hidden;
 
     text-align: center;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
 
-    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease;
 
 }
 
 .product-card:hover {
 
-    transform: translateY(-6px);
+    transform: translateY(-10px);
 
-    box-shadow: 0 14px 35px rgba(0, 0, 0, 0.12);
+    box-shadow:
+
+        0 20px 45px rgba(0, 0, 0, 0.13);
 
 }
 
+/* ===== IMAGE PRODUIT ===== */
+
 .product-image {
 
-    height: 180px;
+    height: 210px;
 
     display: flex;
 
@@ -202,33 +291,59 @@ nav a {
 
     justify-content: center;
 
-    font-size: 70px;
+    font-size: 80px;
 
-    background: #f5f5f5;
+    background:
 
-    border-radius: 14px;
+        linear-gradient(
 
-    margin-bottom: 18px;
+            135deg,
+
+            #f8fafc,
+
+            #e2e8f0
+
+        );
+
+    transition: transform 0.3s ease;
 
 }
+
+.product-card:hover .product-image {
+
+    transform: scale(1.03);
+
+}
+
+/* ===== NOM DU PRODUIT ===== */
 
 .product-card h3 {
 
-    font-size: 20px;
+    font-size: 21px;
 
-    margin: 10px 0;
+    font-weight: 800;
+
+    color: #111827;
+
+    margin: 22px 20px 8px;
 
 }
+
+/* ===== PRIX ===== */
 
 .product-card p {
 
-    font-size: 18px;
+    font-size: 20px;
 
-    font-weight: bold;
+    font-weight: 800;
 
-    margin-bottom: 18px;
+    color: #111827;
+
+    margin: 0 20px 20px;
 
 }
+
+
 
 .product-card button {
 
@@ -251,7 +366,7 @@ nav a {
     opacity: 0.85;
 
 }
-/* ===== HEADER DE LA BOUTIQUE ===== */
+/* ===== SHOP HEADER PREMIUM ===== */
 
 .shop-header {
 
@@ -259,56 +374,226 @@ nav a {
 
     margin: 40px auto 0;
 
-    padding: 55px 30px;
+    padding: 90px 30px;
 
     text-align: center;
 
-    border-radius: 24px;
+    border-radius: 30px;
 
-    background: linear-gradient(135deg, #111827, #374151);
+    background:
+
+        linear-gradient(
+
+            135deg,
+
+            #0f172a 0%,
+
+            #1e293b 50%,
+
+            #334155 100%
+
+        );
 
     color: white;
 
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+    box-shadow:
+
+        0 25px 60px rgba(0, 0, 0, 0.18);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+/* Cercle décoratif haut droite */
+
+.shop-header::before {
+
+    content: "";
+
+    position: absolute;
+
+    width: 300px;
+
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.06);
+
+    top: -170px;
+
+    right: -80px;
+
+}
+
+/* Cercle décoratif bas gauche */
+
+.shop-header::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 220px;
+
+    height: 220px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    bottom: -130px;
+
+    left: -70px;
+
+}
+
+/* Petit badge */
+
+.shop-header h1::before {
+
+    content: "🏪 KOPA STORE";
+
+    display: block;
+
+    width: fit-content;
+
+    margin: 0 auto 22px;
+
+    padding: 7px 15px;
+
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.10);
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    letter-spacing: 1px;
 
 }
 
 .shop-header h1 {
 
-    font-size: 42px;
+    position: relative;
 
-    margin-bottom: 12px;
+    z-index: 2;
+
+    margin: 0 0 15px;
+
+    font-size: 52px;
+
+    line-height: 1.1;
 
     font-weight: 800;
+
+    letter-spacing: -1.5px;
 
 }
 
 .shop-header p {
 
-    font-size: 18px;
+    position: relative;
 
-    margin: 8px 0;
+    z-index: 2;
 
-    opacity: 0.9;
+    margin: 0 auto;
+
+    max-width: 600px;
+
+    font-size: 20px;
+
+    line-height: 1.6;
+
+    color: #e2e8f0;
+
+    font-weight: 500;
 
 }
-/* ===== BOUTONS ===== */
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .shop-header {
+
+        margin: 25px 15px 0;
+
+        padding: 65px 20px;
+
+        border-radius: 24px;
+
+    }
+
+    .shop-header h1 {
+
+        font-size: 38px;
+
+    }
+
+    .shop-header p {
+
+        font-size: 17px;
+
+    }
+
+}
+
+
+
+
+/* ===== BOUTONS PRODUITS KOPA ===== */
 
 .product-card button {
 
+    width: calc(100% - 40px);
+
+    margin: 5px 20px 25px;
+
+    padding: 14px 18px;
+
+    border: none;
+
+    border-radius: 12px;
+
     background: #111827;
 
-    color: white;
+    color: #ffffff;
 
-    transition: all 0.2s ease;
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        background 0.25s ease;
 
 }
 
 .product-card button:hover {
 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    background: #1f2937;
+
+    box-shadow:
+
+        0 10px 22px rgba(0, 0, 0, 0.18);
+
+}
+
+.product-card button:active {
+
+    transform: translateY(0);
 
 }
 /* ===== NAVBAR KOPA ===== */
@@ -417,63 +702,83 @@ nav a {
 
 .hero {
 
-    min-height: 520px;
+    min-height: 500px;
+
+    padding: 80px 20px;
 
     display: flex;
 
-    align-items: center;
+    flex-direction: column;
 
     justify-content: center;
 
+    align-items: center;
+
     text-align: center;
 
-    padding: 60px 20px;
+    background: linear-gradient(
 
-    background: linear-gradient(135deg, #111827, #4b5563);
+        135deg,
 
-    color: white;
+        #111827,
+
+        #1f2937
+
+    );
+
+    border-radius: 0 0 30px 30px;
 
 }
 
 .hero h1 {
 
-    font-size: 58px;
+    max-width: 850px;
 
-    font-weight: 900;
+    margin: 0 auto 20px;
 
-    margin-bottom: 20px;
+    font-size: 56px;
+
+    line-height: 1.1;
+
+    font-weight: 800;
+
+    color: #ffffff;
 
 }
 
 .hero p {
 
-    font-size: 20px;
-
     max-width: 650px;
 
-    margin: 0 auto 30px;
+    margin: 0 auto 35px;
 
-    line-height: 1.6;
+    font-size: 19px;
+
+    line-height: 1.7;
+
+    color: #ffffff;
+
+    opacity: 0.9;
 
 }
 
 .hero button {
 
-    border: none;
-
     padding: 15px 30px;
+
+    border: none;
 
     border-radius: 12px;
 
-    font-size: 17px;
+    background: #ffffff;
+
+    color: #111827;
+
+    font-size: 16px;
 
     font-weight: 700;
 
     cursor: pointer;
-
-    background: white;
-
-    color: #111827;
 
     transition: 0.25s ease;
 
@@ -486,13 +791,18 @@ nav a {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 
 }
+
+/* ===== HERO MOBILE ===== */
+
 @media (max-width: 600px) {
 
     .hero {
 
         min-height: 450px;
 
-        padding: 40px 20px;
+        padding: 60px 20px;
+
+        border-radius: 0 0 22px 22px;
 
     }
 
@@ -517,38 +827,18 @@ nav a {
     }
 
 }
-.hero h2,
 
-.hero h3 {
 
-    color: white;
-
-    font-weight: 700;
-
-}
-
-.hero p {
-
-    color: white;
-
-    opacity: 1;
-
-}
-/* ===== VISIBILITE DES TEXTES ===== */
-.hero p{
-    color: #ffffff;
-    opacity: 1;
-}
 .shop-header p{
     color: #ffffff;
     opacity: 1;
     font-weight: 500;
 }
-/* ===== CARTES DES BOUTIQUES ===== */
+/* ===== CARTES DES BOUTIQUES KOPA ===== */
 
 .shops {
 
-    padding: 70px 20px;
+    padding: 80px 20px;
 
     max-width: 1200px;
 
@@ -560,9 +850,27 @@ nav a {
 
     text-align: center;
 
-    font-size: 36px;
+    font-size: 38px;
 
-    margin-bottom: 40px;
+    font-weight: 800;
+
+    margin-bottom: 12px;
+
+}
+
+.shop-intro {
+
+    max-width: 650px;
+
+    margin: 0 auto 45px;
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 17px;
+
+    line-height: 1.6;
 
 }
 
@@ -572,35 +880,47 @@ nav a {
 
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 
-    gap: 25px;
+    gap: 30px;
 
 }
 
 .shop-card {
 
-    background: white;
+    position: relative;
 
-    border-radius: 20px;
+    background: #ffffff;
+
+    border-radius: 22px;
 
     overflow: hidden;
 
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #e5e7eb;
 
-    transition: 0.25s ease;
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+    transition:
+
+        transform 0.3s ease,
+
+        box-shadow 0.3s ease;
 
 }
 
 .shop-card:hover {
 
-    transform: translateY(-7px);
+    transform: translateY(-10px);
 
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.13);
+    box-shadow:
+
+        0 20px 45px rgba(0, 0, 0, 0.12);
 
 }
 
 .shop-image {
 
-    height: 190px;
+    height: 210px;
 
     display: flex;
 
@@ -608,56 +928,405 @@ nav a {
 
     justify-content: center;
 
-    font-size: 75px;
+    font-size: 80px;
 
-    background: #f3f4f6;
+    background: linear-gradient(
+
+        135deg,
+
+        #f3f4f6,
+
+        #e5e7eb
+
+    );
+
+    transition: transform 0.3s ease;
+
+}
+
+.shop-card:hover .shop-image {
+
+    transform: scale(1.03);
 
 }
 
 .shop-card h3 {
 
-    font-size: 22px;
+    font-size: 23px;
 
-    margin: 20px 20px 8px;
+    font-weight: 800;
+
+    margin: 22px 22px 8px;
+
+    color: #111827;
 
 }
 
 .shop-card p {
 
-    margin: 0 20px 20px;
+    margin: 0 22px 22px;
 
-    color: #4b5563;
+    color: #6b7280;
 
-    line-height: 1.5;
+    line-height: 1.6;
 
 }
 
 .shop-card button {
 
-    margin: 0 20px 25px;
+    margin: 0 22px 25px;
 
-    padding: 12px 18px;
+    padding: 13px 20px;
 
     border: none;
 
-    border-radius: 10px;
+    border-radius: 12px;
 
     background: #111827;
 
-    color: white;
+    color: #ffffff;
 
     font-weight: 700;
 
+    font-size: 15px;
+
     cursor: pointer;
 
-    transition: 0.2s ease;
+    transition:
+
+        transform 0.2s ease,
+
+        box-shadow 0.2s ease,
+
+        opacity 0.2s ease;
 
 }
 
 .shop-card button:hover {
 
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 
-    opacity: 0.85;
+    box-shadow:
+
+        0 8px 18px rgba(0, 0, 0, 0.15);
+
+    opacity: 0.9;
 
 }
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .shops {
+
+        padding: 60px 20px;
+
+    }
+
+    .shops h2 {
+
+        font-size: 30px;
+
+    }
+
+    .shop-intro {
+
+        font-size: 16px;
+
+    }
+
+    .shop-image {
+
+        height: 190px;
+
+        font-size: 70px;
+
+    }
+
+}
+
+
+/* ===== FOOTER KOPA ===== */
+
+.footer {
+
+    margin-top: 70px;
+
+    background: #111827;
+
+    color: white;
+
+    padding: 50px 20px 20px;
+
+}
+
+.footer-content {
+
+    max-width: 1100px;
+
+    margin: auto;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 40px;
+
+}
+
+.footer-brand h2 {
+
+    font-size: 30px;
+
+    margin-bottom: 10px;
+
+}
+
+.footer-brand p {
+
+    color: #d1d5db;
+
+}
+
+.footer-links {
+
+    display: flex;
+
+    gap: 25px;
+
+    flex-wrap: wrap;
+
+}
+
+.footer-links a {
+
+    color: white;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+
+}
+
+.footer-links a:hover {
+
+    opacity: 0.7;
+
+}
+
+.footer-bottom {
+
+    max-width: 1100px;
+
+    margin: 35px auto 0;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #374151;
+
+    text-align: center;
+
+}
+
+.footer-bottom p {
+
+    color: #9ca3af;
+
+    font-size: 14px;
+
+}
+
+@media (max-width: 600px) {
+
+    .footer-content {
+
+        flex-direction: column;
+
+        text-align: center;
+
+    }
+
+    .footer-links {
+
+        justify-content: center;
+
+    }
+
+}
+/* ===== NAVBAR KOPA ===== */
+
+.navbar {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 18px 7%;
+
+    background: white;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    position: sticky;
+
+    top: 0;
+
+    z-index: 1000;
+
+}
+
+.logo {
+
+    font-size: 30px;
+
+    font-weight: 800;
+
+    letter-spacing: 2px;
+
+}
+
+.navbar nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+}
+
+.navbar nav a,
+
+.navbar nav button {
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+    color: #111827;
+
+    background: transparent;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+    font-size: 15px;
+
+}
+
+.navbar nav a:hover,
+
+.navbar nav button:hover {
+
+    background: #f3f4f6;
+
+    transform: translateY(-2px);
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .navbar {
+
+        padding: 15px 20px;
+
+    }
+
+    .logo {
+
+        font-size: 24px;
+
+    }
+
+    .navbar nav {
+
+        gap: 5px;
+
+    }
+
+    .navbar nav a,
+
+    .navbar nav button {
+
+        padding: 8px 10px;
+
+        font-size: 14px;
+
+    }
+
+}
+/* ===== BOUTON AJOUTER UN PRODUIT ===== */
+
+.add-product-btn {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin: 0 auto 30px;
+
+    padding: 14px 24px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        background 0.25s ease;
+
+}
+
+.add-product-btn:hover {
+
+    transform: translateY(-3px);
+
+    background: #1f2937;
+
+    box-shadow:
+
+        0 12px 28px rgba(0, 0, 0, 0.18);
+
+}
+
+.add-product-btn:active {
+
+    transform: translateY(0);
+
+}
+
+
