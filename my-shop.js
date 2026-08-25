@@ -89,7 +89,7 @@ function addProduct(event) {
 
     name: productName,
 
-    price: Number(productPrice)
+    price: Number(productPrice),
 
 };
 

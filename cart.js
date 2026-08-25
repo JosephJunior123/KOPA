@@ -1,14 +1,15 @@
 let cart = JSON.parse(localStorage.getItem("kopaCart")) || []; 
-function addToCart(productName, price) { 
+function addToCart(productName, price, shop) { 
     const existingProduct = cart.find(function(product) { 
-        return product.name === productName; 
+        return product.name === productName && product.shop === shop; 
     }); 
     if (existingProduct) { 
         existingProduct.quantity += 1; 
     } else { 
         cart.push({ 
             name: productName, 
-            price: price, 
+            price: price,
+            shop: shop, 
             quantity: 1 
         }); 
     } 
