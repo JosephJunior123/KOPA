@@ -1,16 +1,56 @@
 // ===== INFORMATIONS DE LA BOUTIQUE =====
 
-const savedShop = JSON.parse(
+// ===== BOUTIQUE ACTUELLE =====
 
-    localStorage.getItem("kopaShop")
+const shops =
 
-);
+    JSON.parse(
+
+        localStorage.getItem("kopaShops")
+
+    ) || [];
+
+const urlParams =
+
+    new URLSearchParams(
+
+        window.location.search
+
+    );
+
+const shopId =
+
+    urlParams.get("shop");
+
+const currentShopId =
+
+    shopId ||
+
+    localStorage.getItem("currentShopId");
+
+const savedShop =
+
+    shops.find(function(shop) {
+
+        return String(shop.id) ===
+
+               String(currentShopId);
+
+    });
 
 const shopName = document.getElementById("my-shop-name");
 
 const shopCategory = document.getElementById("my-shop-category");
 
 const shopDescription = document.getElementById("my-shop-description");
+
+const shopOwner = document.getElementById("my-shop-owner");
+
+const shopAddress = document.getElementById("my-shop-address");
+
+const shopPhone = document.getElementById("my-shop-phone");
+
+const ownerPhotoContainer = document.getElementById("my-owner-photo-container");
 
 if (savedShop) {
 
@@ -19,6 +59,38 @@ if (savedShop) {
     shopCategory.textContent = savedShop.category;
 
     shopDescription.textContent = savedShop.description;
+    shopOwner.textContent =
+
+    "👤 " + savedShop.owner;
+
+shopAddress.textContent =
+
+    savedShop.address
+
+        ? "📍 " + savedShop.address
+
+        : "📍 Adresse non renseignée";
+
+shopPhone.textContent =
+
+    "📱 +243 " + savedShop.phone;
+    if (savedShop.ownerPhoto) {
+
+    ownerPhotoContainer.innerHTML = `
+
+        <img
+
+            src="${savedShop.ownerPhoto}"
+
+            alt="Photo du commerçant"
+
+            class="owner-photo"
+
+        >
+
+    `;
+
+}
 
 }
 

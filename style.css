@@ -1336,9 +1336,11 @@ nav a {
 
     height: 100%;
 
-    object-fit: cover;
+    object-fit: contain;
 
     display: block;
+    padding: 10px;
+    box-sizing: border-box;
 
 }
 /* ===== FORMULAIRE AJOUT PRODUIT KOPA ===== */
@@ -1885,5 +1887,34 @@ nav a {
 .phone-field input {
 
     flex: 1;
+
+}
+/* ===== PHOTO DU COMMERÇANT ===== */
+
+#my-owner-photo-container {
+
+    display: flex;
+
+    justify-content: center;
+
+    margin-top: 25px;
+
+}
+
+.owner-photo {
+
+    width: 110px;
+
+    height: 110px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    border: 4px solid rgba(255, 255, 255, 0.25);
+
+    box-shadow:
+
+        0 8px 25px rgba(0, 0, 0, 0.25);
 
 }

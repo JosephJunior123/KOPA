@@ -1,36 +1,91 @@
+// ===== OUVRIR UNE BOUTIQUE =====
+
 function openShop(shop) {
-    window.location.href = "shop.html?shop=" + shop;
+
+    window.location.href =
+
+        "shop.html?shop=" + shop;
+
 }
-const savedShop = JSON.parse(localStorage.getItem("kopaShop"));
 
-const myShopContainer = document.getElementById("my-shop-container");
+// ===== AFFICHER LES BOUTIQUES =====
 
-if (savedShop && myShopContainer) {
+const shops =
 
-    myShopContainer.innerHTML = `
+    JSON.parse(
 
-    
+        localStorage.getItem("kopaShops")
 
-        <div class="shop-card">
+    ) || [];
 
-            <div class="shop-image">
+const myShopContainer =
 
-                🏪
+    document.getElementById(
+
+        "my-shop-container"
+
+    );
+
+if (
+
+    myShopContainer &&
+
+    shops.length > 0
+
+) {
+
+    myShopContainer.innerHTML = "";
+
+    shops.forEach(function(shop) {
+
+        myShopContainer.innerHTML += `
+
+            <div class="shop-card">
+
+                <div class="shop-image">
+
+                    🏪
+
+                </div>
+
+                <h3>
+
+                    ${shop.name}
+
+                </h3>
+
+                <p>
+
+                    ${shop.category}
+
+                </p>
+
+                <p>
+
+                    ${shop.description}
+
+                </p>
+
+                <button
+
+                    onclick="
+
+                        window.location.href =
+
+                        'my-shop.html?shop=${shop.id}'
+
+                    "
+
+                >
+
+                    🏪 Ma boutique
+
+                </button>
 
             </div>
 
-            <h3>${savedShop.name}</h3>
+        `;
 
-            <p>${savedShop.category}</p>
-
-            <p>${savedShop.description}</p>
-
-            <button onclick="window.location.href='my-shop.html'">
-                Ma boutique
-            </button>
-
-        </div>
-
-    `;
+    });
 
 }

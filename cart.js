@@ -1,90 +1,318 @@
-let cart = JSON.parse(localStorage.getItem("kopaCart")) || []; 
-function addToCart(productName, price, shop) { 
-    const existingProduct = cart.find(function(product) { 
-        return product.name === productName && product.shop === shop; 
-    }); 
-    if (existingProduct) { 
-        existingProduct.quantity += 1; 
-    } else { 
-        cart.push({ 
-            name: productName, 
-            price: price,
-            shop: shop, 
-            quantity: 1 
-        }); 
-    } 
-    localStorage.setItem("kopaCart", JSON.stringify(cart)); 
-    alert(productName + " a été ajouté au panier !"); 
-    displayCart(); 
-} 
-function changeQuantity(productName, change) { 
-    const product = cart.find(function(item) { 
-        return item.name === productName; 
-    }); 
-    if (product) { 
-        product.quantity += change; 
-        if (product.quantity < 1) { 
-            product.quantity = 1; 
-        } 
-        localStorage.setItem("kopaCart", JSON.stringify(cart)); 
-        displayCart(); 
-    } 
-}
-function removeFromCart(productName) {
+// ===== PANIER KOPA =====
 
-    cart = cart.filter(function(product) {
+let cart =
 
-        return product.name !== productName;
+    JSON.parse(localStorage.getItem("kopaCart")) || [];
+
+// ===== AJOUTER AU PANIER =====
+
+function addToCart(productName, price, shop) {
+
+    const existingProduct = cart.find(function(product) {
+
+        return (
+
+            product.name === productName &&
+
+            product.shop === shop
+
+        );
 
     });
 
-    localStorage.setItem("kopaCart", JSON.stringify(cart));
+    if (existingProduct) {
+
+        existingProduct.quantity += 1;
+
+    } else {
+
+        cart.push({
+
+            name: productName,
+
+            price: Number(price),
+
+            shop: shop,
+
+            quantity: 1
+
+        });
+
+    }
+
+    localStorage.setItem(
+
+        "kopaCart",
+
+        JSON.stringify(cart)
+
+    );
+
+    alert(productName + " a été ajouté au panier !");
 
     displayCart();
 
 }
-function displayCart() { 
-    const cartItems = document.getElementById("cart-items"); 
-    const cartTotal = document.getElementById("cart-total"); 
-    if (!cartItems || !cartTotal) { 
-        return; 
-    } 
-    cartItems.innerHTML = ""; 
-    let total = 0; 
-    cart.forEach(function(product) { 
-        // Si un ancien produit n'a pas de quantité 
-        if (!product.quantity) { 
-            product.quantity = 1; 
-        } 
-        const subtotal = product.price * product.quantity; 
-        const productElement = document.createElement("div"); 
+
+// ===== AFFICHER LE PANIER =====
+
+function displayCart() {
+
+    const cartItems =
+
+        document.getElementById("cart-items");
+
+    const cartTotal =
+
+        document.getElementById("cart-total");
+
+    if (!cartItems || !cartTotal) {
+
+        return;
+
+    }
+
+    cartItems.innerHTML = "";
+
+    let total = 0;
+
+    if (cart.length === 0) {
+
+        cartItems.innerHTML =
+
+            "<p>Votre panier est vide.</p>";
+
+        cartTotal.textContent =
+
+            "Total : 0 $";
+
+        return;
+
+    }
+
+    cart.forEach(function(product, index) {
+
+        if (!product.quantity) {
+
+            product.quantity = 1;
+
+        }
+
+        const subtotal =
+
+            Number(product.price) *
+
+            Number(product.quantity);
+
+        total += subtotal;
+
+        const productElement =
+
+            document.createElement("div");
+
+        productElement.className =
+
+            "cart-item";
+
         productElement.innerHTML = `
 
-    <h3>${product.name}</h3>
+            <h3>${product.name}</h3>
 
-    <p>${product.price} $ × ${product.quantity}</p>
+            <p>🏪 ${product.shop || "Boutique"}</p>
 
-    <button onclick="changeQuantity('${product.name}', -1)">
+            <p>💰 ${product.price} $</p>
 
-        −
+            <div class="quantity-controls">
 
-    </button>
+                <button
 
-    <button onclick="changeQuantity('${product.name}', 1)">
+                    class="quantity-minus"
 
-        +
+                    data-index="${index}"
 
-    </button>
-    <button onclick="removeFromCart('${product.name}')">
-        🗑️
-    </button>
-    <p>Sous-total : ${subtotal} $</p>
+                >
 
-`; 
-        cartItems.appendChild(productElement); 
-        total = total + subtotal; 
-    }); 
-    cartTotal.textContent = "Total : " + total + " $"; 
-    localStorage.setItem("kopaCart", JSON.stringify(cart)); 
-} 
+                    −
+
+                </button>
+
+                <strong>
+
+                    ${product.quantity}
+
+                </strong>
+
+                <button
+
+                    class="quantity-plus"
+
+                    data-index="${index}"
+
+                >
+
+                    +
+
+                </button>
+
+            </div>
+
+            <p>
+
+                Sous-total :
+
+                <strong>${subtotal} $</strong>
+
+            </p>
+
+            <button
+
+                class="remove-product"
+
+                data-index="${index}"
+
+            >
+
+                🗑 Supprimer
+
+            </button>
+
+            <hr>
+
+        `;
+
+        cartItems.appendChild(productElement);
+
+    });
+
+    cartTotal.textContent =
+
+        "Total : " + total + " $";
+
+    localStorage.setItem(
+
+        "kopaCart",
+
+        JSON.stringify(cart)
+
+    );
+
+}
+
+// ===== GESTION DES BOUTONS =====
+
+document.addEventListener("click", function(event) {
+
+    const button = event.target.closest("button");
+
+    if (!button) {
+
+        return;
+
+    }
+
+    // ===== BOUTON PLUS =====
+
+    if (button.classList.contains("quantity-plus")) {
+
+        const index =
+
+            Number(button.dataset.index);
+
+        if (cart[index]) {
+
+            cart[index].quantity += 1;
+
+            localStorage.setItem(
+
+                "kopaCart",
+
+                JSON.stringify(cart)
+
+            );
+
+            displayCart();
+
+        }
+
+    }
+
+    // ===== BOUTON MOINS =====
+
+    if (button.classList.contains("quantity-minus")) {
+
+        const index =
+
+            Number(button.dataset.index);
+
+        if (cart[index]) {
+
+            cart[index].quantity -= 1;
+
+            if (cart[index].quantity < 1) {
+
+                cart[index].quantity = 1;
+
+            }
+
+            localStorage.setItem(
+
+                "kopaCart",
+
+                JSON.stringify(cart)
+
+            );
+
+            displayCart();
+
+        }
+
+    }
+
+    // ===== SUPPRIMER =====
+
+    if (button.classList.contains("remove-product")) {
+
+        const index =
+
+            Number(button.dataset.index);
+    if (cart[index]) {
+
+            const confirmation =
+
+                confirm(
+
+                    "Voulez-vous vraiment supprimer " +
+
+                    cart[index].name +
+
+                    " du panier ?"
+
+                );
+
+            if (!confirmation) {
+
+                return;
+
+            }
+
+            cart.splice(index, 1);
+
+            localStorage.setItem(
+
+                "kopaCart",
+
+                JSON.stringify(cart)
+
+            );
+
+            displayCart();
+
+        }
+
+    }
+
+});
+
+// ===== AFFICHAGE INITIAL =====
+
 displayCart();

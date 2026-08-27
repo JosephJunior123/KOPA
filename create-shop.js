@@ -4,34 +4,176 @@ shopForm.addEventListener("submit", function(event) {
 
     event.preventDefault();
 
-    const shopName = document.getElementById("shop-name").value;
+    // ===== INFORMATIONS DE LA BOUTIQUE =====
 
-    const shopCategory = document.getElementById("shop-category").value;
+    const shopName =
 
-    const shopDescription = document.getElementById("shop-description").value;
+        document.getElementById("shop-name").value.trim();
 
-    const ownerName = document.getElementById("owner-name").value;
+    const shopCategory =
 
-    console.log("Nom de la boutique :", shopName);
+        document.getElementById("shop-category").value.trim();
 
-    console.log("Catégorie :", shopCategory);
+    const shopDescription =
 
-    console.log("Description :", shopDescription);
+        document.getElementById("shop-description").value.trim();
 
-    console.log("Commerçant :", ownerName);
-    const shop = {
+    const ownerName =
 
-    name: shopName,
+        document.getElementById("owner-name").value.trim();
 
-    category: shopCategory,
+    const shopAddress =
 
-    description: shopDescription,
+        document.getElementById("shop-address").value.trim();
 
-    owner: ownerName
+    const ownerPhone =
 
-};
+        document.getElementById("owner-phone").value.trim();
 
-localStorage.setItem("kopaShop", JSON.stringify(shop));
-    alert("Votre boutique " + shopName + " a été créée avec succès !");
+    const ownerPhotoInput =
+
+        document.getElementById("owner-photo");
+
+    const ownerPhotoFile =
+
+        ownerPhotoInput.files[0];
+
+    // ===== VALIDATION =====
+
+    if (
+
+        !shopName ||
+
+        !shopCategory ||
+
+        !shopDescription ||
+
+        !ownerName ||
+
+        !ownerPhone
+
+    ) {
+
+        alert(
+
+            "Veuillez remplir tous les champs obligatoires."
+
+        );
+
+        return;
+
+    }
+
+    // ===== FONCTION DE SAUVEGARDE =====
+
+    function saveShop(ownerPhoto) {
+
+        const shop = {
+
+            id: Date.now(),
+
+            name: shopName,
+
+            category: shopCategory,
+
+            description: shopDescription,
+
+            owner: ownerName,
+
+            address: shopAddress,
+
+            phone: ownerPhone,
+
+            ownerPhoto: ownerPhoto
+
+        };
+
+        // Récupérer les boutiques existantes
+
+        let shops =
+
+            JSON.parse(
+
+                localStorage.getItem("kopaShops")
+
+            ) || [];
+
+        // Ajouter la nouvelle boutique
+
+        shops.push(shop);
+
+        // Sauvegarder toutes les boutiques
+
+        localStorage.setItem(
+
+            "kopaShops",
+
+            JSON.stringify(shops)
+
+        );
+
+        // Garder cette boutique comme boutique actuelle
+
+        localStorage.setItem(
+
+            "currentShopId",
+
+            shop.id
+
+        );
+
+        alert(
+
+            "Votre boutique " +
+
+            shopName +
+
+            " a été créée avec succès !"
+
+        );
+
+        console.log(
+
+            "Nouvelle boutique :",
+
+            shop
+
+        );
+
+        // Retour vers l'accueil
+
+        window.location.href = "intex.html";
+
+    }
+
+    // ===== PHOTO DU VENDEUR =====
+
+    if (ownerPhotoFile) {
+
+        const reader =
+
+            new FileReader();
+
+        reader.onload = function() {
+
+            saveShop(
+
+                reader.result
+
+            );
+
+        };
+
+        reader.readAsDataURL(
+
+            ownerPhotoFile
+
+        );
+
+    } else {
+
+        saveShop("");
+
+    }
 
 });
