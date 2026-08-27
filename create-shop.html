@@ -36,9 +36,10 @@
 
     <main>
 
-        <section class="create-shop">
+        <section class="create-shop-section">
+            <div class="create-shop-card">
 
-            <h1>Créer ma boutique</h1>
+            <h1>🏪 Créer ma boutique</h1>
 
             <p>
 
@@ -46,113 +47,146 @@
 
             </p>
             <form id="shop-form">
+                <label for="shop-name">
 
-    <label for="shop-name">
+    Nom de la boutique
 
-        Nom de la boutique
+</label>
 
-    </label>
+<input
+
+    type="text"
+
+    id="shop-name"
+
+    placeholder="Exemple : Sarah Fashion"
+
+    required
+
+>
+
+<label for="shop-category">
+
+    Catégorie
+
+</label>
+
+<input
+
+    type="text"
+
+    id="shop-category"
+
+    placeholder="Exemple : Mode et vêtements"
+
+    required
+
+>
+
+<label for="shop-description">
+
+    Description de la boutique
+
+</label>
+
+<textarea
+
+    id="shop-description"
+
+    placeholder="Présentez votre boutique..."
+
+    required
+
+></textarea>
+
+<label for="owner-name">
+
+    Nom du commerçant
+
+</label>
+
+<input
+
+    type="text"
+
+    id="owner-name"
+
+    placeholder="Votre nom complet"
+
+    required
+
+>
+
+<label for="shop-address">
+
+    Adresse de la boutique
+
+    <span class="optional">Si nécessaire</span>
+
+</label>
+
+<input
+
+    type="text"
+
+    id="shop-address"
+
+    placeholder="Exemple : Lubumbashi, RDC"
+
+>
+
+<label for="owner-photo">
+
+    📸 Photo du vendeur
+
+    <span class="optional">Si nécessaire</span>
+
+</label>
+
+<input
+
+    type="file"
+
+    id="owner-photo"
+
+    accept="image/*"
+
+>
+
+<label for="owner-phone">
+
+    📱 Numéro de téléphone du vendeur
+
+</label>
+
+<div class="phone-field">
+
+    <span>+243</span>
 
     <input
 
-        type="text"
+        type="tel"
 
-        id="shop-name"
+        id="owner-phone"
 
-        placeholder="Exemple : Ma Boutique"
+        placeholder="81 234 5678"
 
         required
 
     >
 
-    <label for="shop-category">
+</div>
 
-        Catégorie
+<button type="submit">
 
-    </label>
+    🏪 Créer ma boutique
 
-    <select id="shop-category" required>
+</button>
+                <!-- tes champs actuels ici -->
+            </form>
+            </div>
 
-        <option value="">
-
-            Choisissez une catégorie
-
-        </option>
-
-        <option value="Mode">
-
-            Mode et vêtements
-
-        </option>
-
-        <option value="Technologie">
-
-            Technologie
-
-        </option>
-
-        <option value="Beauté">
-
-            Beauté et cosmétiques
-
-        </option>
-
-        <option value="Alimentation">
-
-            Alimentation
-
-        </option>
-
-        <option value="Autre">
-
-            Autre
-
-        </option>
-
-    </select>
-
-    <label for="shop-description">
-
-        Description de la boutique
-
-    </label>
-
-    <textarea
-
-        id="shop-description"
-
-        placeholder="Présentez votre boutique..."
-
-        required
-
-    ></textarea>
-
-    <label for="owner-name">
-
-        Nom du commerçant
-
-    </label>
-
-    <input
-
-        type="text"
-
-        id="owner-name"
-
-        placeholder="Votre nom"
-
-        required
-
-    >
-
-    <button type="submit">
-
-        Créer ma boutique
-
-    </button>
-
-</form>
-
+   
         </section>
 
     </main>
