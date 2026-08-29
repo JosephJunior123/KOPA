@@ -316,3 +316,18 @@ document.addEventListener("click", function(event) {
 // ===== AFFICHAGE INITIAL =====
 
 displayCart();
+// ===== PASSER LA COMMANDE =====
+
+function checkout() {
+
+    if (cart.length === 0) {
+
+        alert("Votre panier est vide.");
+
+        return;
+
+    }
+
+    window.location.href = "checkout.html";
+
+}

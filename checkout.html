@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+
+        name="viewport"
+
+        content="width=device-width, initial-scale=1.0"
+
+    >
+
+    <title>Valider la commande - KOPA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="navbar">
+
+        <div class="logo">
+
+            KOPA
+
+        </div>
+
+        <nav>
+
+            <a href="intex.html">
+
+                🏡 Accueil
+
+            </a>
+
+            <a href="cart.html">
+
+                🛒 Panier
+
+            </a>
+
+        </nav>
+
+    </header>
+
+    <main>
+
+        <section class="checkout">
+
+            <div class="checkout-card">
+
+                <h1>
+
+                    🧾 Valider ma commande
+
+                </h1>
+
+                <p>
+
+                    Entrez vos informations pour recevoir votre commande.
+
+                </p>
+
+                <form id="checkout-form">
+
+                    <!-- NOM -->
+
+                    <label for="customer-name">
+
+                        👤 Nom complet
+
+                    </label>
+
+                    <input
+
+                        type="text"
+
+                        id="customer-name"
+
+                        placeholder="Exemple : Joseph Kamulombo"
+
+                        required
+
+                    >
+
+                    <!-- TELEPHONE -->
+
+                    <label for="customer-phone">
+
+                        📱 Numéro de téléphone
+
+                    </label>
+
+                    <div class="phone-field">
+
+                        <span>+243</span>
+
+                        <input
+
+                            type="tel"
+
+                            id="customer-phone"
+
+                            placeholder="81 234 5678"
+
+                            required
+
+                        >
+
+                    </div>
+
+                    <!-- ADRESSE -->
+
+                    <label for="customer-address">
+
+                        📍 Adresse de livraison
+
+                    </label>
+
+                    <textarea
+
+                        id="customer-address"
+
+                        placeholder="Exemple : Lubumbashi, Golf..."
+
+                        required
+
+                    ></textarea>
+
+                    <!-- INSTRUCTIONS -->
+
+                    <label for="delivery-note">
+
+                        📝 Instructions de livraison
+
+                        <span class="optional">
+
+                            Facultatif
+
+                        </span>
+
+                    </label>
+
+                    <textarea
+
+                        id="delivery-note"
+
+                        placeholder="Une précision pour le livreur..."
+
+                    ></textarea>
+
+                    <button type="submit">
+
+                        Continuer vers le paiement →
+
+                    </button>
+
+                </form>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <script src="checkout.js"></script>
+
+</body>
+
+</html>

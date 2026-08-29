@@ -1918,3 +1918,1127 @@ nav a {
         0 8px 25px rgba(0, 0, 0, 0.25);
 
 }
+/* ===== CHECKOUT KOPA — CATALOGUE PREMIUM ===== */
+
+.checkout {
+
+    max-width: 850px;
+
+    margin: 60px auto;
+
+    padding: 20px;
+
+}
+
+/* ===== CARTE PRINCIPALE ===== */
+
+.checkout-card {
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    padding: 50px;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, 0.08);
+
+}
+
+/* ===== TITRE ===== */
+
+.checkout-card h1 {
+
+    margin: 0 0 12px;
+
+    text-align: center;
+
+    font-size: 40px;
+
+    font-weight: 800;
+
+    color: #111827;
+
+}
+
+.checkout-card > p {
+
+    text-align: center;
+
+    color: #6b7280;
+
+    font-size: 17px;
+
+    margin-bottom: 40px;
+
+}
+
+/* ===== FORMULAIRE ===== */
+
+#checkout-form {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+}
+
+/* ===== LABELS ===== */
+
+#checkout-form label {
+
+    margin-top: 12px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    color: #111827;
+
+}
+
+/* ===== INPUTS ===== */
+
+#checkout-form input,
+
+#checkout-form textarea {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 15px 17px;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    background: #f9fafb;
+
+    color: #111827;
+
+    font-size: 16px;
+
+    font-family: Arial, sans-serif;
+
+    outline: none;
+
+    transition:
+
+        border 0.2s ease,
+
+        box-shadow 0.2s ease,
+
+        background 0.2s ease;
+
+}
+
+/* ===== TEXTAREA ===== */
+
+#checkout-form textarea {
+
+    min-height: 110px;
+
+    resize: vertical;
+
+}
+
+/* ===== FOCUS ===== */
+
+#checkout-form input:focus,
+
+#checkout-form textarea:focus {
+
+    background: #ffffff;
+
+    border-color: #111827;
+
+    box-shadow:
+
+        0 0 0 3px rgba(17, 24, 39, 0.08);
+
+}
+
+/* ===== TELEPHONE ===== */
+
+.checkout-card .phone-field {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 0;
+
+    width: 100%;
+
+}
+
+.checkout-card .phone-field span {
+
+    padding: 15px 16px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-weight: 700;
+
+    border-radius: 12px 0 0 12px;
+
+}
+
+.checkout-card .phone-field input {
+
+    border-radius: 0 12px 12px 0;
+
+}
+
+/* ===== FACULTATIF ===== */
+
+.checkout-card .optional {
+
+    margin-left: 6px;
+
+    color: #9ca3af;
+
+    font-size: 13px;
+
+    font-weight: 500;
+
+}
+
+/* ===== BOUTON ===== */
+
+#checkout-form button {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 16px 22px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        background 0.25s ease;
+
+}
+
+#checkout-form button:hover {
+
+    transform: translateY(-3px);
+
+    background: #1f2937;
+
+    box-shadow:
+
+        0 12px 28px rgba(0, 0, 0, 0.18);
+
+}
+
+#checkout-form button:active {
+
+    transform: translateY(0);
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .checkout {
+
+        margin: 30px auto;
+
+        padding: 15px;
+
+    }
+
+    .checkout-card {
+
+        padding: 30px 20px;
+
+        border-radius: 22px;
+
+    }
+
+    .checkout-card h1 {
+
+        font-size: 30px;
+
+    }
+
+    .checkout-card > p {
+
+        font-size: 15px;
+
+        margin-bottom: 30px;
+
+    }
+
+    #checkout-form input,
+
+    #checkout-form textarea {
+
+        font-size: 15px;
+
+    }
+
+}
+/* ===== CONFIRMATION KOPA ===== */
+
+.confirmation {
+
+    max-width: 850px;
+
+    margin: 60px auto;
+
+    padding: 20px;
+
+}
+
+.confirmation-card {
+
+    background: #ffffff;
+
+    border-radius: 28px;
+
+    padding: 50px;
+
+    text-align: center;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+
+        0 20px 50px rgba(0, 0, 0, 0.08);
+
+}
+
+/* ===== ICÔNE SUCCÈS ===== */
+
+.success-icon {
+
+    width: 80px;
+
+    height: 80px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 45px;
+
+    font-weight: 800;
+
+}
+
+.confirmation-card h1 {
+
+    margin: 0 0 15px;
+
+    font-size: 40px;
+
+    color: #111827;
+
+}
+
+.confirmation-message {
+
+    color: #6b7280;
+
+    font-size: 17px;
+
+    margin-bottom: 35px;
+
+}
+
+/* ===== RÉSUMÉ ===== */
+
+.order-summary {
+
+    max-width: 600px;
+
+    margin: 0 auto 30px;
+
+    padding: 25px;
+
+    background: #f9fafb;
+
+    border-radius: 18px;
+
+    text-align: left;
+
+}
+
+.order-summary h2 {
+
+    margin-top: 0;
+
+    text-align: center;
+
+    font-size: 22px;
+
+}
+
+.summary-product {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+.summary-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 20px;
+
+    padding-top: 15px;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+}
+
+.order-summary hr {
+
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 25px 0;
+
+}
+
+.order-summary p {
+
+    font-size: 15px;
+
+    color: #4b5563;
+
+}
+
+/* ===== BOUTONS ===== */
+
+.confirmation-card button {
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 6px auto;
+
+    padding: 15px 20px;
+
+    border: none;
+
+    border-radius: 13px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.25s ease;
+
+}
+
+.confirmation-card button:hover {
+
+    transform: translateY(-3px);
+
+    background: #1f2937;
+
+    box-shadow:
+
+        0 10px 25px rgba(0, 0, 0, 0.15);
+
+}
+
+.confirmation-card .secondary-button {
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+}
+
+.confirmation-card .secondary-button:hover {
+
+    background: #e5e7eb;
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .confirmation {
+
+        margin: 30px auto;
+
+        padding: 15px;
+
+    }
+
+    .confirmation-card {
+
+        padding: 30px 20px;
+
+        border-radius: 22px;
+
+    }
+
+    .confirmation-card h1 {
+
+        font-size: 30px;
+
+    }
+
+    .summary-product {
+
+        font-size: 14px;
+
+    }
+
+}
+/* ===== CONFIRMATION PREMIUM KOPA ===== */
+
+.confirmation {
+
+    max-width: 900px;
+
+    margin: 60px auto;
+
+    padding: 20px;
+
+}
+
+.confirmation-card {
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 30px;
+
+    padding: 55px 50px;
+
+    text-align: center;
+
+    box-shadow: 0 20px 55px rgba(0, 0, 0, 0.08);
+
+}
+
+/* ===== ICÔNE ===== */
+
+.success-icon {
+
+    width: 85px;
+
+    height: 85px;
+
+    margin: 0 auto 25px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 48px;
+
+    font-weight: 800;
+
+    box-shadow:
+
+        0 12px 30px rgba(0, 0, 0, 0.15);
+
+}
+
+/* ===== TITRE ===== */
+
+.confirmation-card h1 {
+
+    margin: 0 0 15px;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: #111827;
+
+}
+
+.confirmation-message {
+
+    max-width: 600px;
+
+    margin: 0 auto 40px;
+
+    color: #6b7280;
+
+    font-size: 17px;
+
+    line-height: 1.7;
+
+}
+
+/* ===== RÉSUMÉ ===== */
+
+.order-summary {
+
+    max-width: 650px;
+
+    margin: 0 auto 35px;
+
+    padding: 30px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 20px;
+
+    text-align: left;
+
+}
+
+.order-summary h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    color: #111827;
+
+}
+
+/* ===== PRODUITS ===== */
+
+.summary-product {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 20px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    color: #374151;
+
+}
+
+.summary-product strong {
+
+    color: #111827;
+
+}
+
+/* ===== TOTAL ===== */
+
+.summary-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 20px;
+
+    padding-top: 18px;
+
+    font-size: 21px;
+
+    font-weight: 800;
+
+    color: #111827;
+
+}
+
+/* ===== INFORMATIONS CLIENT ===== */
+
+.order-summary hr {
+
+    border: none;
+
+    border-top: 1px solid #e5e7eb;
+
+    margin: 28px 0;
+
+}
+
+.order-summary p {
+
+    margin: 10px 0;
+
+    color: #4b5563;
+
+    font-size: 15px;
+
+}
+
+/* ===== BOUTONS ===== */
+
+.confirmation-card button {
+
+    display: block;
+
+    width: 100%;
+
+    max-width: 500px;
+
+    margin: 10px auto;
+
+    padding: 16px 22px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #111827;
+
+    color: #ffffff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease,
+
+        background 0.25s ease;
+
+}
+
+.confirmation-card button:hover {
+
+    transform: translateY(-3px);
+
+    background: #1f2937;
+
+    box-shadow:
+
+        0 12px 28px rgba(0, 0, 0, 0.16);
+
+}
+
+/* ===== SECOND BOUTON ===== */
+
+.confirmation-card .secondary-button {
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+}
+
+.confirmation-card .secondary-button:hover {
+
+    background: #e5e7eb;
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .confirmation {
+
+        margin: 30px auto;
+
+        padding: 15px;
+
+    }
+
+    .confirmation-card {
+
+        padding: 35px 20px;
+
+        border-radius: 24px;
+
+    }
+
+    .confirmation-card h1 {
+
+        font-size: 31px;
+
+    }
+
+    .confirmation-message {
+
+        font-size: 15px;
+
+    }
+
+    .order-summary {
+
+        padding: 20px;
+
+    }
+
+    .summary-product {
+
+        font-size: 14px;
+
+    }
+
+    .summary-total {
+
+        font-size: 19px;
+
+    }
+
+}
+/* ===== MES COMMANDES KOPA ===== */
+
+.my-orders {
+
+    max-width: 1000px;
+
+    margin: 60px auto;
+
+    padding: 20px;
+
+}
+
+.my-orders > h2 {
+
+    text-align: center;
+
+    font-size: 32px;
+
+    margin-bottom: 30px;
+
+    color: #111827;
+
+}
+
+/* ===== COMMANDE ===== */
+
+.order-card {
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 24px;
+
+    padding: 28px;
+
+    margin-bottom: 25px;
+
+    box-shadow:
+
+        0 12px 35px rgba(0, 0, 0, 0.07);
+
+    transition:
+
+        transform 0.25s ease,
+
+        box-shadow 0.25s ease;
+
+}
+
+.order-card:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+
+        0 18px 40px rgba(0, 0, 0, 0.10);
+
+}
+
+/* ===== EN-TÊTE ===== */
+
+.order-header {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 20px;
+
+}
+
+.order-header h3 {
+
+    margin: 0;
+
+    font-size: 21px;
+
+    color: #111827;
+
+}
+
+/* ===== STATUT ===== */
+
+.order-status {
+
+    padding: 7px 14px;
+
+    border-radius: 30px;
+
+    background: #f3f4f6;
+
+    color: #111827;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+/* ===== PRODUITS ===== */
+
+.order-products {
+
+    border-top: 1px solid #e5e7eb;
+
+    border-bottom: 1px solid #e5e7eb;
+
+    margin: 15px 0;
+
+}
+
+.order-product {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding: 15px 0;
+
+    color: #374151;
+
+}
+
+.order-product strong {
+
+    color: #111827;
+
+}
+
+/* ===== TOTAL ===== */
+
+.order-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 10px 0;
+
+    font-size: 20px;
+
+    font-weight: 800;
+
+    color: #111827;
+
+}
+
+/* ===== INFORMATIONS CLIENT ===== */
+
+.customer-info {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    border-radius: 16px;
+
+    background: #f8fafc;
+
+}
+
+.customer-info p {
+
+    margin: 9px 0;
+
+    color: #4b5563;
+
+    font-size: 15px;
+
+}
+
+/* ===== AUCUNE COMMANDE ===== */
+
+.empty-orders {
+
+    text-align: center;
+
+    padding: 55px 25px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 24px;
+
+    box-shadow:
+
+        0 10px 30px rgba(0, 0, 0, 0.06);
+
+}
+
+.empty-orders-icon {
+
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+}
+
+.empty-orders h3 {
+
+    margin-bottom: 10px;
+
+    color: #111827;
+
+    font-size: 22px;
+
+}
+
+.empty-orders p {
+
+    color: #6b7280;
+
+    margin: 0;
+
+    line-height: 1.6;
+
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width: 600px) {
+
+    .my-orders {
+
+        margin: 35px auto;
+
+        padding: 15px;
+
+    }
+
+    .my-orders > h2 {
+
+        font-size: 27px;
+
+    }
+
+    .order-card {
+
+        padding: 20px;
+
+        border-radius: 20px;
+
+    }
+
+    .order-header {
+
+        align-items: flex-start;
+
+        flex-direction: column;
+
+    }
+
+    .order-product {
+
+        font-size: 14px;
+
+    }
+
+    .order-total {
+
+        font-size: 18px;
+
+    }
+
+    .customer-info {
+
+        padding: 15px;
+
+    }
+
+}

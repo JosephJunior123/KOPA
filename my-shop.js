@@ -798,3 +798,214 @@ function deleteProduct(productName) {
 
 }
 displayProducts();
+// ===== MES COMMANDES =====
+
+function displayOrders() {
+
+    const ordersContainer =
+
+        document.getElementById("my-orders-container");
+
+    if (!ordersContainer || !savedShop) {
+
+        return;
+
+    }
+
+    const orders =
+
+        JSON.parse(
+
+            localStorage.getItem("kopaOrders")
+
+        ) || [];
+
+    const myOrders = [];
+
+    orders.forEach(function(order) {
+
+        if (!order.cart) {
+
+            return;
+
+        }
+
+        const shopProducts =
+
+            order.cart.filter(function(product) {
+
+                return product.shop === savedShop.name;
+
+            });
+
+        if (shopProducts.length > 0) {
+
+            myOrders.push({
+
+                order: order,
+
+                products: shopProducts
+
+            });
+
+        }
+
+    });
+
+    ordersContainer.innerHTML = "";
+
+    if (myOrders.length === 0) {
+
+        ordersContainer.innerHTML = `
+
+            <div class="empty-orders">
+
+                <div class="empty-orders-icon">
+
+                    📦
+
+                </div>
+
+                <h3>
+
+                    Aucune commande pour le moment
+
+                </h3>
+
+                <p>
+
+                    Les commandes de vos clients
+
+                    apparaîtront ici.
+
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+    myOrders.forEach(function(item, index) {
+
+        let total = 0;
+
+        let productsHTML = "";
+
+        item.products.forEach(function(product) {
+
+            const quantity =
+
+                product.quantity || 1;
+
+            const subtotal =
+
+                Number(product.price) * quantity;
+
+            total += subtotal;
+
+            productsHTML += `
+
+                <div class="order-product">
+
+                    <span>
+
+                        ${product.name} × ${quantity}
+
+                    </span>
+
+                    <strong>
+
+                        ${subtotal} $
+
+                    </strong>
+
+                </div>
+
+            `;
+
+        });
+
+        ordersContainer.innerHTML += `
+
+            <div class="order-card">
+
+                <div class="order-header">
+
+                    <h3>
+
+                        📦 Commande #${index + 1}
+
+                    </h3>
+
+                    <span class="order-status">
+
+    ${item.order.status || "Nouvelle"}
+
+</span>
+
+                </div>
+
+                <div class="order-products">
+
+                    ${productsHTML}
+
+                </div>
+
+                <div class="order-total">
+
+                    <span>
+
+                        Total
+
+                    </span>
+
+                    <strong>
+
+                        ${total} $
+
+                    </strong>
+
+                </div>
+
+                <hr>
+
+                <div class="customer-info">
+
+                    <p>
+
+                        👤 ${item.order.customerName || "Client"}
+
+                    </p>
+
+                    <p>
+
+                        📱 ${item.order.customerPhone || "Non renseigné"}
+
+                    </p>
+
+                    <p>
+
+                        📍 ${item.order.customerAddress || "Non renseignée"}
+
+                    </p>
+
+                    <p>
+
+                        📝 ${item.order.deliveryNote || "Aucune note"}
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        `;
+
+    });
+
+}
+
+displayOrders();
