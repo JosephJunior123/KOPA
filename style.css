@@ -3042,3 +3042,78 @@ nav a {
     }
 
 }
+/* ===== MOYENS DE PAIEMENT ===== */
+
+.payment-option {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 16px;
+
+    margin-bottom: 15px;
+
+    border: 2px solid #e5e7eb;
+
+    border-radius: 18px;
+
+    background: #ffffff;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+
+}
+
+.payment-option:hover {
+
+    border-color: #111827;
+
+    transform: translateY(-2px);
+
+}
+
+.payment-option input {
+
+    width: 18px;
+
+    height: 18px;
+
+}
+
+.payment-logo {
+
+    width: 85px;
+
+    height: 50px;
+
+    object-fit: contain;
+
+    border-radius: 8px;
+
+}
+
+.payment-details {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 4px;
+
+}
+
+.payment-details strong {
+
+    font-size: 16px;
+
+}
+
+.payment-details small {
+
+    color: #6b7280;
+
+}
