@@ -3117,3 +3117,78 @@ nav a {
     color: #6b7280;
 
 }
+/* ===== RÉSUMÉ PAIEMENT ===== */
+
+.payment-summary {
+
+    margin: 25px 0;
+
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 18px;
+
+}
+
+.payment-summary h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 18px;
+
+    font-size: 20px;
+
+}
+
+.payment-product {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    padding: 12px 0;
+
+    border-bottom: 1px solid #e5e7eb;
+
+}
+
+.payment-product span {
+
+    color: #374151;
+
+}
+
+.payment-product strong {
+
+    font-weight: 600;
+
+}
+
+.payment-total {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-top: 18px;
+
+    padding-top: 15px;
+
+    border-top: 2px solid #d1d5db;
+
+    font-size: 19px;
+
+}
+
+.payment-total strong {
+
+    font-size: 22px;
+
+}

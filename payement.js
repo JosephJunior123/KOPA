@@ -1,3 +1,64 @@
+// ===== RÉSUMÉ DE LA COMMANDE =====
+
+const savedOrder = JSON.parse(
+
+    localStorage.getItem("kopaOrder")
+
+);
+
+const paymentItems = document.getElementById(
+
+    "payment-order-items"
+
+);
+
+const paymentTotal = document.getElementById(
+
+    "payment-total"
+
+);
+
+if (savedOrder && savedOrder.cart) {
+
+    let total = 0;
+
+    savedOrder.cart.forEach(function(product) {
+
+        const quantity = product.quantity || 1;
+
+        const subtotal =
+
+            Number(product.price) * quantity;
+
+        total += subtotal;
+
+        paymentItems.innerHTML += `
+
+            <div class="payment-product">
+
+                <span>
+
+                    ${product.name} × ${quantity}
+
+                </span>
+
+                <strong>
+
+                    ${subtotal} $
+
+                </strong>
+
+            </div>
+
+        `;
+
+    });
+
+    paymentTotal.textContent =
+
+        total + " $";
+
+}
 // ===== PAIEMENT KOPA =====
 
 const paymentForm =

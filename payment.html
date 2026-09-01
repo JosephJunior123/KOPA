@@ -65,6 +65,14 @@
                     Choisissez votre moyen de paiement.
 
                 </p>
+                <div class="payment-summary">
+                    <h2>🛍️ Résumé de la commande</h2>
+                    <div id="payment-order-items"></div>
+                    <div class="payment-total">
+                        <span>Total:</span>
+                        <strong id="payment-total">0 $</strong>
+                    </div>
+                </div>
 
                 <form id="payment-form">
 
@@ -168,6 +176,41 @@
                     <button type="submit">
 
                         Continuer →
+                    <div class="phone-field">
+
+    <label for="payment-phone">
+
+        📱 Numéro Mobile Money
+
+    </label>
+
+    <div class="phone-input">
+
+        <span>+243</span>
+
+        <input
+
+            type="tel"
+
+            id="payment-phone"
+
+            placeholder="81 234 5678"
+
+            maxlength="10"
+
+            required
+
+        >
+
+    </div>
+
+    <small>
+
+        Entrez le numéro utilisé pour le paiement.
+
+    </small>
+
+</div>
 
                     </button>
 
