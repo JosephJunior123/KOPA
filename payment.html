@@ -173,12 +173,17 @@
     </span>
 
 </label>
-                    <button type="submit">
+                    <div
 
-                        Continuer →
-                    <div class="phone-field">
+    class="phone-field"
 
-    <label for="payment-phone">
+    id="phone-field"
+
+    style="display: none;"
+
+>
+
+    <label for="payment-phone" id="payment-phone-label">
 
         📱 Numéro Mobile Money
 
@@ -198,8 +203,6 @@
 
             maxlength="10"
 
-            required
-
         >
 
     </div>
@@ -211,8 +214,22 @@
     </small>
 
 </div>
+<div class="payment-security">
+    <span class="security-icon">🔒</span>
 
-                    </button>
+    <div>
+        <strong>Paiement sécurisé</strong>
+        <small>
+            Vos informations sont protégées.
+        </small>
+    </div>
+</div>
+
+<button type="submit">
+
+    Continuer →
+
+</button>
 
                 </form>
 

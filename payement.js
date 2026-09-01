@@ -64,6 +64,52 @@ if (savedOrder && savedOrder.cart) {
 const paymentForm =
 
     document.getElementById("payment-form");
+const phoneField =
+
+    document.getElementById("phone-field");
+
+const paymentPhone =
+
+    document.getElementById("payment-phone");
+const paymentPhoneLabel =
+    document.getElementById("payment-phone-label");
+
+const paymentMethods =
+
+    document.querySelectorAll(
+
+        'input[name="payment-method"]'
+
+    );
+
+paymentMethods.forEach(function(method) {
+
+    method.addEventListener("change", function() {
+
+    phoneField.style.display = "block";
+
+    paymentPhone.required = true;
+
+    if (this.value === "orange-money") {
+
+        paymentPhoneLabel.textContent =
+            "📱 Numéro Orange Money";
+
+    } else if (this.value === "airtel-money") {
+
+        paymentPhoneLabel.textContent =
+            "📱 Numéro Airtel Money";
+
+    } else if (this.value === "mpesa") {
+
+        paymentPhoneLabel.textContent =
+            "📱 Numéro M-Pesa";
+
+    }
+
+});
+
+});
 
 paymentForm.addEventListener("submit", function(event) {
 
@@ -84,6 +130,15 @@ paymentForm.addEventListener("submit", function(event) {
         return;
 
     }
+    if (!paymentPhone.value.trim()) {
+
+    alert("Veuillez entrer votre numéro Mobile Money.");
+
+    paymentPhone.focus();
+
+    return;
+
+}
 
     const order =
 
@@ -106,19 +161,30 @@ paymentForm.addEventListener("submit", function(event) {
     order.paymentMethod =
 
         selectedPayment.value;
+    order.paymentPhone =
+    "+243 " + paymentPhone.value.trim();
 
-    localStorage.setItem(
+   // ===== ENREGISTRER LA COMMANDE =====
 
-        "kopaOrder",
+let orders =
+    JSON.parse(
+        localStorage.getItem("kopaOrders")
+    ) || [];
 
-        JSON.stringify(order)
+orders.push(order);
 
-    );
+localStorage.setItem(
+    "kopaOrders",
+    JSON.stringify(orders)
+);
 
-    // Aller à la confirmation
+// Garder également la commande actuelle
+localStorage.setItem(
+    "kopaOrder",
+    JSON.stringify(order)
+);
 
-    window.location.href =
-
-        "confirmation.html";
+window.location.href =
+    "confirmation.html";
 
 });

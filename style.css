@@ -3192,3 +3192,288 @@ nav a {
     font-size: 22px;
 
 }
+/* ===== NUMÉRO MOBILE MONEY ===== */
+
+.phone-field {
+
+    margin-top: 20px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 16px;
+
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+
+}
+
+.phone-field label {
+
+    display: block;
+
+    margin-bottom: 10px;
+
+    font-weight: 600;
+
+    font-size: 15px;
+
+}
+
+.phone-input {
+
+    display: flex;
+
+    align-items: center;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    border: 1px solid #d1d5db;
+
+    border-radius: 12px;
+
+    background: #f9fafb;
+
+}
+
+.phone-input span {
+
+    padding: 13px 14px;
+
+    font-weight: 600;
+
+    background: #f1f5f9;
+
+    border-right: 1px solid #d1d5db;
+
+}
+
+.phone-input input {
+
+    flex: 1;
+
+    border: none;
+
+    outline: none;
+
+    padding: 13px;
+
+    font-size: 16px;
+
+    background: transparent;
+
+}
+
+.phone-input input:focus {
+
+    background: #ffffff;
+
+}
+
+.phone-field small {
+
+    display: block;
+
+    margin-top: 8px;
+
+    color: #6b7280;
+
+    font-size: 12px;
+
+}
+/* ===== SÉCURITÉ PAIEMENT ===== */
+
+.payment-security {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin-top: 20px;
+    padding: 14px 16px;
+
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 14px;
+}
+
+.security-icon {
+    font-size: 24px;
+}
+
+.payment-security strong {
+    display: block;
+    font-size: 14px;
+}
+
+.payment-security small {
+    display: block;
+    margin-top: 3px;
+    color: #6b7280;
+    font-size: 12px;
+}
+/* ===== PAIEMENT DANS LA CONFIRMATION ===== */
+
+.payment-method-confirmation,
+.payment-phone-confirmation {
+    margin: 10px 0;
+    padding: 12px 14px;
+
+    background: #f8fafc;
+    border-radius: 12px;
+
+    font-size: 14px;
+}
+
+.payment-method-confirmation strong,
+.payment-phone-confirmation strong {
+    font-weight: 600;
+}
+/* ===== COMMANDES KOPA ===== */
+
+.orders {
+    max-width: 950px;
+    margin: 40px auto;
+    padding: 20px;
+}
+
+.orders h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.orders-intro {
+    text-align: center;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.order-card {
+    background: #ffffff;
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border: 1px solid #eeeeee;
+}
+
+.order-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    padding-bottom: 18px;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.order-header h2 {
+    margin: 12px 0 0;
+}
+
+.order-status {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #fff7d6;
+    color: #8a6d00;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.order-customer,
+.order-products,
+.order-payment {
+    margin-top: 25px;
+}
+
+.order-customer h3,
+.order-products h3 {
+    margin-bottom: 15px;
+}
+
+.order-customer p {
+    margin: 8px 0;
+}
+
+.order-product {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 14px 0;
+    border-bottom: 1px solid #eeeeee;
+}
+
+.order-product p {
+    margin: 5px 0 0;
+    color: #777;
+}
+
+.order-payment {
+    padding: 16px;
+    border-radius: 14px;
+    background: #f8fafc;
+}
+
+.order-payment p {
+    margin: 8px 0;
+}
+
+.order-total {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 2px solid #eeeeee;
+    font-size: 18px;
+}
+
+.order-total strong {
+    font-size: 22px;
+}
+
+.empty-orders {
+    text-align: center;
+    background: #ffffff;
+    padding: 50px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+.empty-orders-icon {
+    font-size: 50px;
+    margin-bottom: 15px;
+}
+
+@media (max-width: 600px) {
+
+    .orders {
+        margin: 20px auto;
+        padding: 15px;
+    }
+
+    .order-card {
+        padding: 18px;
+    }
+
+    .order-header {
+        flex-direction: column;
+    }
+
+    .order-product {
+        align-items: flex-start;
+    }
+
+    .order-total {
+        font-size: 16px;
+    }
+
+    .order-total strong {
+        font-size: 19px;
+    }
+
+}
