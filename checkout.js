@@ -105,8 +105,15 @@ if (checkoutForm) {
                 id:
 
                     "KOPA-" +
-
-                    Date.now(),
+    new Date().getFullYear() +
+    "-" +
+    String(
+        (
+            JSON.parse(
+                localStorage.getItem("kopaOrders")
+            ) || []
+        ).length + 1
+    ).padStart(4, "0"),
 
                 customerName:
 
@@ -140,30 +147,7 @@ if (checkoutForm) {
 
             };
 
-            // ===== RÉCUPÉRER LES ANCIENNES COMMANDES =====
-
-            let orders =
-
-                JSON.parse(
-
-                    localStorage.getItem("kopaOrders")
-
-                ) || [];
-
-            // ===== AJOUTER LA NOUVELLE COMMANDE =====
-
-            orders.push(order);
-
-            // ===== SAUVEGARDER =====
-
-            localStorage.setItem(
-
-                "kopaOrders",
-
-                JSON.stringify(orders)
-
-            );
-
+          
             // ===== GARDER AUSSI LA DERNIÈRE COMMANDE =====
 
             localStorage.setItem(
