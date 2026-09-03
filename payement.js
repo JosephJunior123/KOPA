@@ -163,6 +163,8 @@ paymentForm.addEventListener("submit", function(event) {
         selectedPayment.value;
     order.paymentPhone =
     "+243 " + paymentPhone.value.trim();
+    order.paymentStatus =
+    "En attente";
 
    // ===== ENREGISTRER LA COMMANDE =====
 
@@ -183,6 +185,27 @@ localStorage.setItem(
     "kopaOrder",
     JSON.stringify(order)
 );
+// ===== TEST SERVEUR KOPA =====
+
+fetch("http://localhost:3000/payment-test", {
+    method: "POST"
+})
+.then(function(response) {
+    return response.json();
+})
+.then(function(data) {
+
+    console.log(data.message);
+
+})
+.catch(function(error) {
+
+    console.error(
+        "Erreur de communication avec le serveur KOPA :",
+        error
+    );
+
+});
 
 window.location.href =
     "confirmation.html";

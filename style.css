@@ -3607,3 +3607,19 @@ nav a {
 .order-details p {
     margin: 9px 0;
 }
+/* ===== STATUT DU PAIEMENT ===== */
+
+.payment-pending {
+    color: #b7791f;
+    font-weight: 600;
+}
+
+.payment-confirmed {
+    color: #15803d;
+    font-weight: 600;
+}
+
+.payment-failed {
+    color: #dc2626;
+    font-weight: 600;
+}

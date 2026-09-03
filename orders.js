@@ -217,6 +217,34 @@ function displayOrders() {
                 "🟢 Vodacom M-Pesa";
         }
 
+        // ===== STATUT DU PAIEMENT =====
+
+function getPaymentStatusInfo(status) {
+
+    if (status === "Confirmé") {
+
+        return {
+            text: "🟢 Paiement confirmé",
+            className: "payment-confirmed"
+        };
+
+    }
+
+    if (status === "Échoué") {
+
+        return {
+            text: "🔴 Paiement échoué",
+            className: "payment-failed"
+        };
+
+    }
+
+    return {
+        text: "🟡 Paiement en attente",
+        className: "payment-pending"
+    };
+}
+
 
         // ===== DATE =====
 
@@ -231,6 +259,10 @@ function displayOrders() {
 
         const statusInfo =
             getStatusInfo(order.status);
+        const paymentStatusInfo =
+    getPaymentStatusInfo(
+        order.paymentStatus
+    );
         // ===== VOIR LES DÉTAILS =====
 
 function toggleOrderDetails(orderIndex) {
@@ -356,6 +388,12 @@ function toggleOrderDetails(orderIndex) {
                             ${paymentName}
                         </strong>
                     </p>
+                    <p class="${paymentStatusInfo.className}">
+    💰 Statut du paiement :
+    <strong>
+        ${paymentStatusInfo.text}
+    </strong>
+</p>
 
                     <p>
                         📱 Numéro Mobile Money :
