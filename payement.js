@@ -1,21 +1,15 @@
 // ===== RÉSUMÉ DE LA COMMANDE =====
 
 const savedOrder = JSON.parse(
-
     localStorage.getItem("kopaOrder")
-
 );
 
 const paymentItems = document.getElementById(
-
     "payment-order-items"
-
 );
 
 const paymentTotal = document.getElementById(
-
     "payment-total"
-
 );
 
 if (savedOrder && savedOrder.cart) {
@@ -27,175 +21,193 @@ if (savedOrder && savedOrder.cart) {
         const quantity = product.quantity || 1;
 
         const subtotal =
-
             Number(product.price) * quantity;
 
         total += subtotal;
 
         paymentItems.innerHTML += `
-
             <div class="payment-product">
-
                 <span>
-
                     ${product.name} × ${quantity}
-
                 </span>
 
                 <strong>
-
                     ${subtotal} $
-
                 </strong>
-
             </div>
-
         `;
 
     });
 
     paymentTotal.textContent =
-
         total + " $";
-
 }
+
+
 // ===== PAIEMENT KOPA =====
 
 const paymentForm =
-
     document.getElementById("payment-form");
-const phoneField =
 
+const phoneField =
     document.getElementById("phone-field");
 
 const paymentPhone =
-
     document.getElementById("payment-phone");
+
 const paymentPhoneLabel =
     document.getElementById("payment-phone-label");
 
 const paymentMethods =
-
     document.querySelectorAll(
-
         'input[name="payment-method"]'
-
     );
+
+
+// ===== CHOIX DU MOYEN DE PAIEMENT =====
 
 paymentMethods.forEach(function(method) {
 
     method.addEventListener("change", function() {
 
-    phoneField.style.display = "block";
+        phoneField.style.display = "block";
 
-    paymentPhone.required = true;
+        paymentPhone.required = true;
 
-    if (this.value === "orange-money") {
+        if (this.value === "orange-money") {
 
-        paymentPhoneLabel.textContent =
-            "📱 Numéro Orange Money";
+            paymentPhoneLabel.textContent =
+                "📱 Numéro Orange Money";
 
-    } else if (this.value === "airtel-money") {
+        } else if (this.value === "airtel-money") {
 
-        paymentPhoneLabel.textContent =
-            "📱 Numéro Airtel Money";
+            paymentPhoneLabel.textContent =
+                "📱 Numéro Airtel Money";
 
-    } else if (this.value === "mpesa") {
+        } else if (this.value === "mpesa") {
 
-        paymentPhoneLabel.textContent =
-            "📱 Numéro M-Pesa";
+            paymentPhoneLabel.textContent =
+                "📱 Numéro M-Pesa";
 
-    }
+        }
+
+    });
 
 });
 
-});
 
-paymentForm.addEventListener("submit", function(event) {
+// ===== VALIDATION DU PAIEMENT =====
 
-    event.preventDefault();
+paymentForm.addEventListener(
+    "submit",
+    function(event) {
 
-    const selectedPayment =
+        event.preventDefault();
 
-        document.querySelector(
+        const selectedPayment =
+            document.querySelector(
+                'input[name="payment-method"]:checked'
+            );
 
-            'input[name="payment-method"]:checked'
+        if (!selectedPayment) {
 
+            alert(
+                "Veuillez choisir un moyen de paiement."
+            );
+
+            return;
+        }
+
+        if (!paymentPhone.value.trim()) {
+
+            alert(
+                "Veuillez entrer votre numéro Mobile Money."
+            );
+
+            paymentPhone.focus();
+
+            return;
+        }
+
+        const order =
+            JSON.parse(
+                localStorage.getItem("kopaOrder")
+            );
+
+        if (!order) {
+
+            alert(
+                "Aucune commande trouvée."
+            );
+
+            return;
+        }
+
+
+        // ===== ENREGISTRER LES INFORMATIONS DE PAIEMENT =====
+
+        order.paymentMethod =
+            selectedPayment.value;
+
+        order.paymentPhone =
+            "+243 " +
+            paymentPhone.value.trim();
+
+        order.paymentStatus =
+            "En attente";
+
+
+        // Garder la commande actuelle à jour
+
+        localStorage.setItem(
+            "kopaOrder",
+            JSON.stringify(order)
         );
 
-    if (!selectedPayment) {
 
-        alert("Veuillez choisir un moyen de paiement.");
+        // ===== TEST SERVEUR KOPA =====
 
-        return;
-
+        fetch(
+    "http://localhost:3000/payment-test",
+    {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            paymentMethod: order.paymentMethod,
+            paymentPhone: order.paymentPhone,
+            amount: order.cart.reduce(
+                function(total, product) {
+                    return total +
+                        Number(product.price) *
+                        (product.quantity || 1);
+                },
+                0
+            )
+        })
     }
-    if (!paymentPhone.value.trim()) {
-
-    alert("Veuillez entrer votre numéro Mobile Money.");
-
-    paymentPhone.focus();
-
-    return;
-
-}
-
-    const order =
-
-        JSON.parse(
-
-            localStorage.getItem("kopaOrder")
-
-        );
-
-    if (!order) {
-
-        alert("Aucune commande trouvée.");
-
-        return;
-
-    }
-
-    // Enregistrer le moyen de paiement
-
-    order.paymentMethod =
-
-        selectedPayment.value;
-    order.paymentPhone =
-    "+243 " + paymentPhone.value.trim();
-    order.paymentStatus =
-    "En attente";
-
-   // ===== ENREGISTRER LA COMMANDE =====
-
-let orders =
-    JSON.parse(
-        localStorage.getItem("kopaOrders")
-    ) || [];
-
-orders.push(order);
-
-localStorage.setItem(
-    "kopaOrders",
-    JSON.stringify(orders)
-);
-
-// Garder également la commande actuelle
-localStorage.setItem(
-    "kopaOrder",
-    JSON.stringify(order)
-);
-// ===== TEST SERVEUR KOPA =====
-
-fetch("http://localhost:3000/payment-test", {
-    method: "POST"
-})
+)
 .then(function(response) {
+
+    if (!response.ok) {
+
+        throw new Error(
+            "Réponse serveur : " +
+            response.status
+        );
+
+    }
+
     return response.json();
+
 })
 .then(function(data) {
 
     console.log(data.message);
+
+    window.location.href =
+        "confirmation.html";
 
 })
 .catch(function(error) {
@@ -205,9 +217,8 @@ fetch("http://localhost:3000/payment-test", {
         error
     );
 
-});
-
-window.location.href =
-    "confirmation.html";
+    alert(
+        "Impossible de contacter le serveur KOPA."
+    );
 
 });
