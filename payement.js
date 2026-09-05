@@ -222,3 +222,5 @@ paymentForm.addEventListener(
     );
 
 });
+
+});
