@@ -129,6 +129,10 @@ if (savedOrder.paymentMethod === "orange-money") {
     📱 Numéro Mobile Money :
     <strong>${savedOrder.paymentPhone}</strong>
 </p>
+<p class="payment-id-confirmation">
+    🆔 Référence de paiement :
+    <strong>${savedOrder.paymentId || "En attente"}</strong>
+</p>
 
     `;
 

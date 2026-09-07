@@ -1,5 +1,5 @@
 // ===== RÉSUMÉ DE LA COMMANDE =====
-
+console.log("🔥 payement.js est bien chargé !");
 const savedOrder = JSON.parse(
     localStorage.getItem("kopaOrder")
 );
@@ -103,6 +103,7 @@ paymentForm.addEventListener(
     function(event) {
 
         event.preventDefault();
+        console.log("🔥 Le formulaire de paiement est bien soumis !");
 
         const selectedPayment =
             document.querySelector(
@@ -168,7 +169,7 @@ paymentForm.addEventListener(
         // ===== TEST SERVEUR KOPA =====
 
         fetch(
-    "http://localhost:3000/payment-test",
+    "http://localhost:3000/payment",
     {
         method: "POST",
         headers: {
@@ -204,10 +205,21 @@ paymentForm.addEventListener(
 })
 .then(function(data) {
 
-    console.log(data.message);
+    console.log("📦 Réponse complète du serveur :", data);
 
-    window.location.href =
-        "confirmation.html";
+    if (data.success) {
+
+        order.paymentId =
+            data.paymentId;
+
+        localStorage.setItem(
+            "kopaOrder",
+            JSON.stringify(order)
+        );
+
+        window.location.href =
+            "confirmation.html";
+    }
 
 })
 .catch(function(error) {
