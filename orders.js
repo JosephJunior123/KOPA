@@ -394,6 +394,12 @@ function toggleOrderDetails(orderIndex) {
         ${paymentStatusInfo.text}
     </strong>
 </p>
+<p>
+    🆔 Référence de paiement :
+    <strong>
+        ${order.paymentId || "Non disponible"}
+    </strong>
+</p>
 
                     <p>
                         📱 Numéro Mobile Money :
